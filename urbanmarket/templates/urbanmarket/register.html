@@ -1,0 +1,61 @@
+{% extends "urbanmarket/layout.html" %}
+
+{% block title %}Sign Up | Urban Market{% endblock %}
+
+{% block body %}
+    <main class="register-page">
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {% if message %}
+                <div class="error-message">{{ message }}</div>
+            {% endif %}
+            <h2>☻ Sign up</h2>
+    
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" type="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" type="password" name="confirmation" placeholder="Confirm Password">
+            </div>
+            <input class="btn-secondary" type="submit" value="REGISTER">
+    
+            <p>Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+        </form>
+    </main>
+
+
+
+    <!--
+    <h2>Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+
+    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+    -->
+
+{% endblock %}

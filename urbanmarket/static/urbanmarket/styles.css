@@ -1,0 +1,575 @@
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
+/* GENERAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: franklin-gothic-atf, sans-serif;
+  font-style: normal;
+  color: #222222;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #222222;
+}
+
+a:visited {
+  color: #222222;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.break {
+  margin-top: 2em;
+  background-color: #7474744a;
+  height: 1px;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+/* LAYOUT */
+header .menu {
+  background-color: #EEE6C8;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2em 5.4em;
+  align-items: center;
+}
+header .menu h1 {
+  color: #3F6C4B;
+  font-family: "Calistoga", cursive;
+  font-weight: 100;
+  font-size: 2.2em;
+}
+header .menu button {
+  padding: 0.4em 1em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+}
+header .menu .btn-primary {
+  background-color: #222222;
+  color: #EEE6C8;
+  border-radius: 0.1em;
+}
+header .menu .btn-secondary,
+header .menu .username {
+  background-color: #EEE6C8;
+}
+header .menu .username {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.4em 1em;
+  border-bottom: 2px solid #3F6C4B;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 4em;
+  margin: 0em 5.4em;
+}
+header nav .nav-links {
+  display: flex;
+}
+header nav .nav-links li {
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding-right: 3em;
+}
+header nav .nav-links li a:hover,
+header nav .nav-links li .active {
+  border-bottom: 2px solid #222222;
+}
+header nav .nav-links li .category-links {
+  position: absolute;
+  z-index: 1;
+  background-color: none;
+  padding: 1em 0;
+}
+header nav .nav-links li .category-links ul {
+  visibility: hidden;
+  height: 12.8em;
+  width: 10em;
+  top: 7em;
+  border: 1px solid #222222;
+  background-color: white;
+  padding: 1em;
+  border-radius: 1px;
+}
+header nav .nav-links li .category-links ul li {
+  padding: 0.4em 0;
+}
+header nav .nav-links .categories:hover .category-links ul {
+  visibility: visible;
+}
+header nav .nav-links .categories:hover .category-links ul input {
+  background-color: white;
+  border: 2px solid white;
+  font-weight: 600;
+  outline: none;
+}
+header nav .nav-links .categories:hover .category-links ul input:hover {
+  border-bottom: 2px solid #222222;
+}
+header nav .btn-secondary {
+  padding: 0.4em 1em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #222222;
+  border-radius: 4px;
+  background-color: white;
+}
+
+main {
+  padding: 0em 5.4em;
+  margin-bottom: 10em;
+}
+
+/* INDEX */
+.error-message {
+  margin: 0 auto;
+  border: 2px solid #222222;
+  border-radius: 3px;
+  color: #222222;
+  background-color: #EEE6C8;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 10%;
+  justify-content: center;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  margin-top: 1.8em;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 4em;
+  row-gap: 7em;
+  margin: 4em 0;
+}
+.item-container .item {
+  height: 20em;
+  width: 20em;
+}
+.item-container .item .item-price {
+  font-size: 2rem;
+  margin-bottom: 0.3em;
+}
+.item-container .item .item-tag {
+  font-size: 1.2rem;
+  color: #655b38;
+  background-color: #EEE6C8;
+  padding: 0.3em 0.6em;
+  border-radius: 20px;
+}
+
+/* REGISTER/LOGIN */
+.register-page {
+  background-color: #EEE6C8;
+  text-align: center;
+  height: 100vh;
+}
+.register-page .error-message {
+  margin: 0 auto;
+  border: 2px solid #222222;
+  border-radius: 3px;
+  color: #222222;
+  background-color: #EEE6C8;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 10%;
+  justify-content: center;
+}
+.register-page form {
+  display: inline-block;
+  border: 1px solid #3F6C4B;
+  border-radius: 4px;
+  margin: 6em auto;
+  height: 44em;
+  width: 38em;
+  padding: 2em 4.8em;
+}
+.register-page form h2 {
+  color: #3F6C4B;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.register-page form .form-group {
+  margin: 1em 0;
+}
+.register-page form .form-group input {
+  width: 100%;
+  height: 2.6em;
+  border: 2px solid #3F6C4B;
+  border-radius: 3px;
+  background-color: #EEE6C8;
+  color: #222222;
+  padding: 0 0.3em;
+  font-size: 1.4rem;
+}
+.register-page form p {
+  width: 100%;
+  margin-top: 0.6em;
+  font-size: 1.4rem;
+}
+.register-page form p a {
+  color: #3F6C4B;
+}
+.register-page form .btn-secondary {
+  width: 100%;
+  color: #EEE6C8;
+  background-color: #3F6C4B;
+  border: none;
+  padding: 0.6em;
+  border-radius: 1px;
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+.login-page {
+  background-color: #EEE6C8;
+  text-align: center;
+  height: 100vh;
+}
+.login-page .error-message {
+  margin: 0 auto;
+  border: 2px solid #222222;
+  border-radius: 3px;
+  color: #222222;
+  background-color: #EEE6C8;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 10%;
+  justify-content: center;
+}
+.login-page form {
+  display: inline-block;
+  border: 1px solid #3F6C4B;
+  border-radius: 4px;
+  margin: 6em auto;
+  height: 44em;
+  width: 38em;
+  padding: 2em 4.8em;
+}
+.login-page form h2 {
+  color: #3F6C4B;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.login-page form .form-group {
+  margin: 1em 0;
+}
+.login-page form .form-group input {
+  width: 100%;
+  height: 2.6em;
+  border: 2px solid #3F6C4B;
+  border-radius: 3px;
+  background-color: #EEE6C8;
+  color: #222222;
+  padding: 0 0.3em;
+  font-size: 1.4rem;
+}
+.login-page form p {
+  width: 100%;
+  margin-top: 0.6em;
+  font-size: 1.4rem;
+}
+.login-page form p a {
+  color: #3F6C4B;
+}
+.login-page form .btn-secondary {
+  width: 100%;
+  color: #EEE6C8;
+  background-color: #3F6C4B;
+  border: none;
+  padding: 0.6em;
+  border-radius: 1px;
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+/* MODAL */
+.modal-overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #747474;
+  opacity: 0.4;
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 50em;
+  height: 50em;
+  top: 10%;
+  left: 30%;
+  background-color: #EEE6C8;
+}
+
+.close {
+  color: #3F6C4B;
+  float: right;
+  margin-right: 0.3em;
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+}
+
+.modal-content {
+  margin: 5% auto;
+  padding: 3em;
+  width: 80%;
+}
+.modal-content h2 {
+  color: #3F6C4B;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.modal-content .form-group {
+  margin: 1em 0;
+}
+.modal-content .form-group input[name=title],
+.modal-content .form-group input[name=description],
+.modal-content .form-group textarea {
+  width: 100%;
+  height: 2.6em;
+  border: 2px solid #3F6C4B;
+  border-radius: 3px;
+  background-color: #EEE6C8;
+  color: #222222;
+  padding: 0 0.3em;
+  font-size: 1.4rem;
+}
+.modal-content .form-group textarea {
+  height: 6em;
+  font-family: franklin-gothic-atf, sans-serif;
+  padding-top: 0.6em;
+}
+.modal-content .form-group input[name=price],
+.modal-content .form-group input[name=image],
+.modal-content .form-group input[name=size],
+.modal-content .form-group select {
+  height: 2.6em;
+  border: 2px solid #3F6C4B;
+  border-radius: 3px;
+  background-color: #EEE6C8;
+  color: #222222;
+  padding: 0 0.3em;
+  font-size: 1.4rem;
+}
+.modal-content .form-group input[name=price] {
+  background-image: url("dollar-sign.png");
+  background-size: 0.7em 1.1em;
+  background-position: 0.2em 0.6em;
+  background-repeat: no-repeat;
+  padding-left: 1.2em;
+}
+.modal-content .btn-secondary {
+  width: 100%;
+  color: #EEE6C8;
+  background-color: #3F6C4B;
+  border: none;
+  padding: 0.6em;
+  border-radius: 1px;
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+#create-comment-modal {
+  height: 40em;
+}
+#create-comment-modal .hidden {
+  display: none;
+}
+
+/* ITEM LISTING */
+.listing-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+}
+.listing-container .listing-img {
+  width: 54%;
+  height: 100%;
+  max-width: none;
+}
+.listing-container .listing-info {
+  width: 43%;
+}
+.listing-container .listing-info .listing-forms {
+  margin: 2em 0;
+}
+.listing-container .listing-info .listing-forms .btn-secondary {
+  width: 40%;
+  color: #EEE6C8;
+  background-color: #3F6C4B;
+  border: none;
+  padding: 0.6em;
+  border-radius: 1px;
+  font-weight: 600;
+  margin-top: 1em;
+}
+.listing-container .listing-info .listing-forms p {
+  font-size: 1.6rem;
+}
+.listing-container .listing-info .listing-forms .form-control {
+  width: 70%;
+  height: 2.6em;
+  border: 2px solid #3F6C4B;
+  border-radius: 3px;
+  color: #222222;
+  padding: 0 0.3em;
+  font-size: 1.4rem;
+  margin-top: 0.2em;
+  background-image: url("dollar-sign.png");
+  background-size: 0.7em 1.1em;
+  background-position: 0.2em 0.6em;
+  background-repeat: no-repeat;
+  padding-left: 1.2em;
+}
+.listing-container .listing-info .listing-forms .main-listing-actions .hidden {
+  display: none;
+}
+.listing-container .listing-info .listing-forms .main-listing-actions .btn-secondary {
+  width: 40%;
+  color: #EEE6C8;
+  background-color: #3F6C4B;
+  border: none;
+  padding: 0.6em;
+  border-radius: 1px;
+  font-weight: 600;
+  margin-top: 1em;
+}
+.listing-container .listing-info .listing-forms .main-listing-actions .heart {
+  width: 5%;
+  max-width: none;
+  vertical-align: middle;
+  margin-bottom: 1em;
+}
+.listing-container .listing-info .listing-item-info h3 {
+  font-size: 2rem;
+  margin-top: 3em;
+}
+.listing-container .listing-info .listing-item-info .listing-tags {
+  margin: 0.8em 0;
+}
+.listing-container .listing-info .listing-item-info .listing-tags span {
+  font-size: 1.2rem;
+  color: #655b38;
+  background-color: #EEE6C8;
+  padding: 0.3em 0.6em;
+  border-radius: 20px;
+}
+.listing-container .listing-info .listing-item-info .seller-info {
+  font-size: 1.4rem;
+  margin: 1em 0;
+}
+.listing-container .listing-info .listing-item-info .accordion-container {
+  margin: 4em 0;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .accordion {
+  background-color: white;
+  cursor: pointer;
+  padding: 1.4em 0;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-size: 1.5rem;
+  background-image: url("plus-sign.png");
+  background-size: 1.1em;
+  background-position: 100%;
+  background-repeat: no-repeat;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .description,
+.listing-container .listing-info .listing-item-info .accordion-container .comments {
+  border-top: 1px solid #747474;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .comments {
+  border-bottom: 1px solid #747474;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .panel {
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .panel p {
+  font-size: 1.2rem;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .panel button {
+  height: 2.6em;
+  border: 2px solid #222222;
+  border-radius: 3px;
+  color: #222222;
+  background-color: white;
+  padding: 0 0.8em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .description-panel,
+.listing-container .listing-info .listing-item-info .accordion-container .comments-panel {
+  padding-bottom: 1.4em;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .comment h4,
+.listing-container .listing-info .listing-item-info .accordion-container .comment h5,
+.listing-container .listing-info .listing-item-info .accordion-container .comment p {
+  font-size: 1.2rem;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .comment h4 {
+  font-weight: 800;
+  margin-top: 1em;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .comment h5 {
+  font-weight: 500;
+  color: #747474;
+}
+.listing-container .listing-info .listing-item-info .accordion-container .comment p {
+  margin-top: 0.5em;
+}
+
+/*# sourceMappingURL=styles.css.map */

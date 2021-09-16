@@ -1,0 +1,88 @@
+{% extends "urbanmarket/layout.html" %}
+
+{% block title %}Urban Market{% endblock %}
+
+{% block nav %}
+    <nav>
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}" class="active">ALL</a></li>
+            <li class="categories">
+                <a>CATEGORIES</a>
+                <form class="category-links" action="{% url 'category' %}" method="post">
+                    {% csrf_token %}
+                    <ul>
+                        <li><input type="submit" name="category" value="Tops"></li>
+                        <li><input type="submit" name="category" value="Bottoms"></li>
+                        <li><input type="submit" name="category" value="Dresses"></li>
+                        <li><input type="submit" name="category" value="Shoes"></li>
+                        <li><input type="submit" name="category" value="Accessories"></li>
+                    </ul>
+                </form>
+            </li>
+
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'saved' %}">SAVED</a></li>
+            {% endif %}
+        </ul>
+        
+        {% if user.is_authenticated %}
+            <button id="create-listing-btn" class="btn-secondary">Create listing</button>
+        {% endif %}
+    </nav>
+    <div class="break"></div>
+{% endblock %}
+
+{% block body %}
+    <main>
+        {% if message %}
+            <div class="error-message">{{ message }}</div>
+        {% endif %}
+        <h2>All in Marketplace</h2>
+        <div class="item-container">
+            {% for listing in listings %}
+                <a href="{% url 'listing' listing.id %}">
+                    <div class="item">
+                        <img src="{{ listing.imgURL }}" alt="item">
+                        <div class="item-description">
+                            <h3 class="item-price">${{ listing.price }}</h3>
+                            <span class="item-tag size">{{ listing.size }}</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+        <div id="create-listing-modal" class="modal">
+            <span class="close">&times;</span>
+            <form class="modal-content" action="{% url 'create' %}" method="post">
+                {% csrf_token %}
+                <h2>Create listing</h2>
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" type="text" required="required" maxlength="64" name="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <textarea autocomplete="off" type="text" required="required" maxlength="265" name="description" placeholder="Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" type="number" required="required" min="0.01" step="any" name="price" placeholder="Starting Bid">
+                    <input class="form-control" autocomplete="off" type="text" required="required" name="image" placeholder="Image URL">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" type="text" required="required" maxlength="10" name="size" placeholder="Size">
+                    <select required="required" name="category">
+                        <option value="Tops">Tops</option>
+                        <option value="Bottoms">Bottoms</option>
+                        <option value="Dresses">Dresses</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+                <input class="btn-secondary" type="submit" value="CREATE">
+            </form>
+        </div>
+    
+    </main>
+
+    <div class="modal-overlay"></div>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends "urbanmarket/layout.html" %}
+
+{% block title %}Log In | Urban Market{% endblock %}
+
+{% block body %}
+    <main class="login-page">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% if message %}
+                <div class="error-message">{{ message }}</div>
+            {% endif %}
+            <h2>☻ Log in</h2>
+    
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" type="password" name="password" placeholder="Password">
+            </div>
+            <input class="btn-secondary" type="submit" value="LOG IN">
+    
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign up here</a></p>
+        </form>
+    </main>
+{% endblock %}

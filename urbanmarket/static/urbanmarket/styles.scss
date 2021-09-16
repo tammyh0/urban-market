@@ -1,0 +1,680 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+//$primary-font: gopher, sans-serif;
+$primary-font: 'Calistoga', cursive;
+$secondary-font: franklin-gothic-atf, sans-serif;
+
+$primary-color: #3F6C4B;
+$secondary-color: #EEE6C8;
+$primary-text-color: #222222;
+$secondary-text-color: #747474;
+
+$standard-width: 0em 5.4em;
+
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $secondary-font;
+  font-style: normal;
+  color: $primary-text-color;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-text-color;
+}
+
+a:visited {
+  color: $primary-text-color
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.break {
+  margin-top: 2em;
+  background-color: #7474744a;
+  height: 1px;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+
+
+/* LAYOUT */
+
+header {
+
+  .menu {
+    background-color: $secondary-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2em 5.4em;
+    align-items: center;
+  
+    h1 {
+      color: $primary-color;
+      font-family: $primary-font;
+      font-weight: 100;
+      font-size: 2.2em;
+    }
+
+    button {
+      padding: 0.4em 1em;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+    }
+  
+    .btn-primary {
+      background-color: $primary-text-color;
+      color: $secondary-color;
+      border-radius: 0.1em;
+    }
+  
+    .btn-secondary,
+    .username {
+      background-color: $secondary-color;
+    }
+
+    .username {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.4em 1em;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 4em;
+    margin: $standard-width;
+
+    .nav-links {
+      display: flex;
+
+      li {
+        font-weight: 600;
+        font-size: 1.4rem;
+        padding-right: 3em;
+
+        a:hover,
+        .active {
+          border-bottom: 2px solid $primary-text-color;
+        }
+
+        .category-links {
+          position: absolute;
+          z-index: 1;
+          background-color: none;
+          padding: 1em 0;
+          ul {
+            visibility: hidden;
+            height: 12.8em;
+            width: 10em;
+            top: 7em;
+            border: 1px solid $primary-text-color;
+            background-color: white;
+            padding: 1em;
+            border-radius: 1px;
+
+            li {
+              padding: 0.4em 0;
+            }
+          }
+        }
+      }
+
+      .categories:hover {
+        .category-links {
+          ul {
+            visibility: visible;
+
+            input {
+              background-color: white;
+              border: 2px solid white;
+              font-weight: 600;
+              outline: none;
+            }
+
+            input:hover {
+              border-bottom: 2px solid $primary-text-color;
+            }
+          }
+        }
+      }
+    }
+
+    .btn-secondary {
+      padding: 0.4em 1em;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: 2px solid $primary-text-color;
+      border-radius: 4px;
+      background-color: white;
+    }
+  }
+}
+
+main {
+  padding: $standard-width;
+  margin-bottom: 10em;
+}
+
+/* INDEX */
+
+.error-message {
+  margin: 0 auto;
+  border: 2px solid $primary-text-color;
+  border-radius: 3px;
+  color: $primary-text-color;
+  background-color: $secondary-color;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 10%;
+  justify-content: center;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  margin-top: 1.8em;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 4em;
+  row-gap: 7em;
+  margin: 4em 0;
+
+  .item {
+    height: 20em;
+    width: 20em;
+
+    .item-price {
+      font-size: 2rem;
+      margin-bottom: 0.3em;
+    }
+
+    .item-tag {
+      font-size: 1.2rem;
+      color: #655b38;
+      background-color: $secondary-color;
+      padding: 0.3em 0.6em;
+      border-radius: 20px;
+    }
+  }
+}
+
+
+
+/* REGISTER/LOGIN */
+
+.register-page {
+  background-color: $secondary-color;
+  text-align: center;
+  height: 100vh;
+
+  .error-message {
+    margin: 0 auto;
+    border: 2px solid $primary-text-color;
+    border-radius: 3px;
+    color: $primary-text-color;
+    background-color: $secondary-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    height: 10%;
+    justify-content: center;
+  }
+
+  form {
+    display: inline-block;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    margin: 6em auto;
+    height: 44em;
+    width: 38em;
+    padding: 2em 4.8em;
+
+    h2 {
+      color: $primary-color;
+      font-weight: 600;
+      font-size: 2rem;
+      text-align: left;
+      margin-bottom: 1em;
+    }
+
+    .form-group {
+      margin: 1em 0;
+
+      input {
+        width: 100%;
+        height: 2.6em;
+        border: 2px solid $primary-color;
+        border-radius: 3px;
+        background-color: $secondary-color;
+        color: $primary-text-color;
+        padding: 0 0.3em;
+        font-size: 1.4rem;
+      }
+    }
+
+    p {
+      width: 100%;
+      margin-top: 0.6em;
+      font-size: 1.4rem;
+
+      a {
+        color: $primary-color;
+      }
+    }
+
+    .btn-secondary {
+      width: 100%;
+      color: $secondary-color;
+      background-color: $primary-color;
+      border: none;
+      padding: 0.6em;
+      border-radius: 1px;
+      font-weight: 600;
+      margin-top: 1em;
+    }
+  }
+}
+
+.login-page {
+  background-color: $secondary-color;
+  text-align: center;
+  height: 100vh;
+
+  .error-message {
+    margin: 0 auto;
+    border: 2px solid $primary-text-color;
+    border-radius: 3px;
+    color: $primary-text-color;
+    background-color: $secondary-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    height: 10%;
+    justify-content: center;
+  }
+
+  form {
+    display: inline-block;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    margin: 6em auto;
+    height: 44em;
+    width: 38em;
+    padding: 2em 4.8em;
+
+    h2 {
+      color: $primary-color;
+      font-weight: 600;
+      font-size: 2rem;
+      text-align: left;
+      margin-bottom: 1em;
+    }
+
+    .form-group {
+      margin: 1em 0;
+
+      input {
+        width: 100%;
+        height: 2.6em;
+        border: 2px solid $primary-color;
+        border-radius: 3px;
+        background-color: $secondary-color;
+        color: $primary-text-color;
+        padding: 0 0.3em;
+        font-size: 1.4rem;
+      }
+    }
+
+    p {
+      width: 100%;
+      margin-top: 0.6em;
+      font-size: 1.4rem;
+
+      a {
+        color: $primary-color;
+      }
+    }
+
+    .btn-secondary {
+      width: 100%;
+      color: $secondary-color;
+      background-color: $primary-color;
+      border: none;
+      padding: 0.6em;
+      border-radius: 1px;
+      font-weight: 600;
+      margin-top: 1em;
+    }
+  }
+}
+
+/* MODAL */
+
+.modal-overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: $secondary-text-color;
+  opacity: 0.4;
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 50em;
+  height: 50em;
+  top: 10%;
+  left: 30%;
+  background-color: $secondary-color;
+}
+
+.close {
+  color: $primary-color;
+  float: right;
+  margin-right: 0.3em;
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+}
+
+.modal-content {
+  margin: 5% auto; 
+  padding: 3em;
+  width: 80%; 
+
+  h2 {
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  .form-group {
+    margin: 1em 0;
+
+    input[name=title],
+    input[name=description],
+    textarea {
+      width: 100%;
+      height: 2.6em;
+      border: 2px solid $primary-color;
+      border-radius: 3px;
+      background-color: $secondary-color;
+      color: $primary-text-color;
+      padding: 0 0.3em;
+      font-size: 1.4rem;
+    }
+
+    textarea {
+      height: 6em;
+      font-family: $secondary-font;
+      padding-top: 0.6em;
+    }
+
+    input[name=price],
+    input[name=image],
+    input[name=size],
+    select {
+      height: 2.6em;
+      border: 2px solid $primary-color;
+      border-radius: 3px;
+      background-color: $secondary-color;
+      color: $primary-text-color;
+      padding: 0 0.3em;
+      font-size: 1.4rem;
+    }
+
+    input[name=price] {
+      background-image: url('dollar-sign.png');
+      background-size: 0.7em 1.1em;
+      background-position: 0.2em 0.6em;
+      background-repeat: no-repeat;
+  
+      padding-left: 1.2em;
+    }
+  }
+
+  .btn-secondary {
+    width: 100%;
+    color: $secondary-color;
+    background-color: $primary-color;
+    border: none;
+    padding: 0.6em;
+    border-radius: 1px;
+    font-weight: 600;
+    margin-top: 1em;
+  }
+}
+
+#create-comment-modal {
+  height: 40em;
+
+  .hidden {
+    display: none;
+  }
+}
+
+/* ITEM LISTING */
+
+.listing-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+
+  .listing-img {
+    width: 54%;
+    height: 100%;
+    max-width: none;
+  }
+
+  .listing-info {
+    width: 43%;
+
+    .listing-forms {
+      margin: 2em 0;
+
+      .btn-secondary {
+        width: 40%;
+        color: $secondary-color;
+        background-color: $primary-color;
+        border: none;
+        padding: 0.6em;
+        border-radius: 1px;
+        font-weight: 600;
+        margin-top: 1em;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+
+      .form-control {
+        width: 70%;
+        height: 2.6em;
+        border: 2px solid $primary-color;
+        border-radius: 3px;
+        color: $primary-text-color;
+        padding: 0 0.3em;
+        font-size: 1.4rem;
+        margin-top: 0.2em;
+
+        background-image: url('dollar-sign.png');
+        background-size: 0.7em 1.1em;
+        background-position: 0.2em 0.6em;
+        background-repeat: no-repeat;
+    
+        padding-left: 1.2em;
+      }
+
+      .main-listing-actions {
+        .hidden {
+          display: none;
+        }
+
+        .btn-secondary {
+          width: 40%;
+          color: $secondary-color;
+          background-color: $primary-color;
+          border: none;
+          padding: 0.6em;
+          border-radius: 1px;
+          font-weight: 600;
+          margin-top: 1em;
+        }
+
+        .heart {
+          width: 5%;
+          max-width: none;
+          vertical-align: middle;
+          margin-bottom: 1em;
+        }
+      }
+    }
+
+    .listing-item-info {
+      h3 {
+        font-size: 2rem;
+        margin-top: 3em;
+      }
+
+      .listing-tags {
+        margin: 0.8em 0;
+
+        span {
+          font-size: 1.2rem;
+          color: #655b38;
+          background-color: $secondary-color;
+          padding: 0.3em 0.6em;
+          border-radius: 20px;
+        }
+      }
+
+      .seller-info {
+        font-size: 1.4rem;
+        margin: 1em 0;
+      }
+
+      .accordion-container {
+        margin: 4em 0;
+
+        .accordion {
+          background-color: white;
+          cursor: pointer;
+          padding: 1.4em 0;
+          width: 100%;
+          text-align: left;
+          border: none;
+          outline: none;
+          transition: 0.4s;
+          font-size: 1.5rem;
+
+          background-image: url('plus-sign.png');
+          background-size: 1.1em;
+          background-position: 100%;
+          background-repeat: no-repeat;
+        }
+
+        .description,
+        .comments {
+          border-top: 1px solid $secondary-text-color;
+        }
+
+        .comments {
+          border-bottom: 1px solid $secondary-text-color;
+        }
+
+        .panel {
+          background-color: white;
+          display: none;
+          overflow: hidden;
+
+          p {
+            font-size: 1.2rem;
+          }
+
+          button {
+            height: 2.6em;
+            border: 2px solid $primary-text-color;
+            border-radius: 3px;
+            color: $primary-text-color;
+            background-color: white;
+            padding: 0 0.8em;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.4em;
+          }
+        }
+
+        .description-panel,
+        .comments-panel {
+          padding-bottom: 1.4em;
+        }
+
+        .comment {
+          h4,
+          h5,
+          p {
+            font-size: 1.2rem;
+          }
+
+          h4 {
+            font-weight: 800;
+            margin-top: 1em;
+          }
+
+          h5 {
+            font-weight: 500;
+            color: $secondary-text-color;
+          }
+
+          p {
+            margin-top: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
+
