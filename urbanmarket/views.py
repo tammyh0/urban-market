@@ -113,10 +113,11 @@ def listing(request, id):
 
     # Get current state of item save feature
     saved = []
-    try:
-        saved = Saved.objects.filter(username=User.objects.get(username=username), item=listing)
-    except Saved.DoesNotExist:
-        saved = None
+    if username:
+        try:
+            saved = Saved.objects.filter(username=User.objects.get(username=username), item=listing)
+        except Saved.DoesNotExist:
+            saved = None
 
     # Get current number of bids
     bidsCount = []
